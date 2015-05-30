@@ -47,7 +47,7 @@ function pushSettings() {
 			analyzer: {
 				stemmed_keyword: {
 					type: 'custom',
-					tokenizer: 'keyword',
+					tokenizer: 'standard',
 					filter: [
 						'stop',
 						'lowercase',
@@ -96,21 +96,24 @@ function pushMapping() {
 			},
 			proTag: {
 				type: 'string',
-				index_analyzer: 'stemmed_keyword'
+				index_analyzer: 'stemmed_keyword',
+				search_analyzer: 'stemmed_keyword'
 			},
 			Fat: {
 				type: 'integer'
 			},
 			fatTag: {
 				type: 'string',
-				index_analyzer: 'stemmed_keyword'
+				index_analyzer: 'stemmed_keyword',
+				search_analyzer: 'stemmed_keyword'
 			},
 			Carbs: {
 				type: 'integer'
 			},
 			carTag: {
 				type: 'string',
-				index_analyzer: 'stemmed_keyword'
+				index_analyzer: 'stemmed_keyword',
+				search_analyzer: 'stemmed_keyword'
 			},
 			Rating: {
 				type: 'string'
@@ -134,33 +137,33 @@ function pushMapping() {
 function dataEntry() {
 	dataToLoad.forEach(function (datum) {
 		if (datum.Protein > 50) {
-			datum.proTag = 'high protein rich';
+			datum.proTag = 'high protein';
 		} else if (datum.Protein < 20) {
-			datum.proTag = 'less protein low';
+			datum.proTag = 'low protein';
 		} else {
-			datum.proTag = 'normal protein average';
+			datum.proTag = 'normal protein';
 		}
 
 		if (datum.Fat > 50) {
-			datum.fatTag = 'high fat rich';
+			datum.fatTag = 'high fat';
 		} else if (datum.Fat < 20) {
-			datum.fatTag = 'less fat low';
+			datum.fatTag = 'low fat';
 		} else {
-			datum.fatTag = 'normal fat average';
+			datum.fatTag = 'normal fat';
 		}
 
 		if (datum.Carbs > 50) {
-			datum.carTag = 'high carbs carb carbohydrates rich';
+			datum.carTag = 'high carb';
 		} else if (datum.Carbs < 20) {
-			datum.carTag = 'less carbs carb carbohydrates low';
+			datum.carTag = 'low carb';
 		} else {
-			datum.carTag = 'normal carbs carb carbohydrates average';
+			datum.carTag = 'normal carb';
 		}
 
 		if (datum.Rating.indexOf('A') > -1 || datum.Rating === 'B+' ) {
-			datum.ratTag = 'healthy healthful good food diet';
+			datum.ratTag = 'healthy healthful';
 		} else {
-			datum.ratTag = 'unhealthy bad food diet';
+			datum.ratTag = 'unhealthy';
 		}
 
 		esClient.index({
