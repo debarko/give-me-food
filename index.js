@@ -153,8 +153,9 @@ function sendQuery() {
 	    
 	    console.log('\n\n\n\n\n\n\n---------------------------------');
 	    if (hits.length) {
+	    	console.log('Food]\t\t\t\t\t\tProtein\tFat\tCarbs\tRating\tCalories');
 	    	hits.forEach(function(hitItem) {
-	    		console.log(hitItem._source.Food);
+	    		console.log(hitItem._source.Food + '\t\t\t\t\t\t' + hitItem._source.Protein + '\t' + hitItem._source.Fat + '\t' + hitItem._source.Carbs + '\t' + hitItem._source.Rating + '\t' + hitItem._source.Calories);
 	    	});
 	    	console.log("\n\nMatches: " + hits.length);
 	    } else {
