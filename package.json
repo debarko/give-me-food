@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/debarko/give-me-food",
   "dependencies": {
+    "csv-to-json": "^0.1.2",
     "elasticsearch": "^4.1.0"
   }
 }
