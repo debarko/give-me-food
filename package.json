@@ -1,0 +1,22 @@
+{
+  "name": "give-me-food",
+  "version": "1.0.0",
+  "description": "Ask questions about healthiness of a food",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debarko/give-me-food.git"
+  },
+  "author": "Debarko De",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/debarko/give-me-food/issues"
+  },
+  "homepage": "https://github.com/debarko/give-me-food",
+  "dependencies": {
+    "elasticsearch": "^4.1.0"
+  }
+}
