@@ -3,9 +3,9 @@ Ask questions about different nutrition values of food.
 
 
 
-npm install
-node indexer.js
-node index.js
+* npm install
+* node indexer.js
+* node index.js
 
 
 
